@@ -74,7 +74,19 @@
 </div>
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script>
-  // Add your code here!
+  $(console.log("lets get redy to party with jQuery!")); //1
+  $('article img').addClass('image-center'); //2
+  $('article p').last().remove(); //3
+  $('#title').css('font-size', Math.floor(Math.random()*100)); //4
+  $('ol').append('<li>This one was added by jQuery!</li>'); //5
+  $('aside').empty().append('<p>Sorry about the list that used to be here</p>')//6
+  $('.col-sm-4').on("change",function(){ //7
+    let colors = $('.form-control');
+    $('body').css('background-color',`rgb(${colors.eq(0).val()},${colors.eq(2).val()},${colors.eq(1).val()})`);
+  });
+  $('article img').on('click',function(){ //8
+    this.remove();
+  });
 </script>
 </body>
 
