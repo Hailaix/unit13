@@ -14,11 +14,14 @@
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script>
     $('body').append($('<form>')).append('<ul>');
-    $('form').append($('<input class="data" type=text>')).append($('<input class="data" type=number>')).append($('<input type=submit>'));
+    $('form').append($('<input class="data" placeholder="Movie Title" type=text>')).append($('<input class="data" value="0" min=0 max=10 type=number>')).append($('<input type=submit>'));
     $('form').on('submit', function (e) {
         e.preventDefault();
-        let inputs = $('.data');
-        $('ul').append($(`<li>Title: ${inputs.eq(0).val()} Rating: ${inputs.eq(1).val()}/10 </li>`).append('<button>Delete</button>'));
+        let title = $('.data').eq(0).val();
+        let rating = $('.data').eq(1).val();
+        if(title.length >= 2){
+            $('ul').append($(`<li>Title: ${title} Rating: ${rating}/10 </li>`).append('<button>Delete</button>'));
+        }
     });
     $('ul').on('click','button',function(){
         $(this).parent().remove();
