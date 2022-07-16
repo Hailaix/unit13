@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script>
+    $('body').append($('<form>')).append('<ul>');
+    $('form').append($('<input class="data" type=text>')).append($('<input class="data" type=number>')).append($('<input type=submit>'));
+    $('form').on('submit', function (e) {
+        e.preventDefault();
+        let inputs = $('.data');
+        $('ul').append($(`<li>Title: ${inputs.eq(0).val()} Rating: ${inputs.eq(1).val()}/10 </li>`).append('<button>Delete</button>'));
+    });
+    $('ul').on('click','button',function(){
+        $(this).parent().remove();
+    })
+</script>
+
+</html>
